@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Team 9 Extension v0",
+  "description": "This extension will analyze a page using our model :p",
+  "version": "1.0",
+
+  "browser_action": {
+   "default_icon": "icon.png",
+   "default_popup": "extension.html"
+  },
+  "permissions": [
+   "activeTab"
+   ]
+}
