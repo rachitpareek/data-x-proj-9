@@ -6,6 +6,7 @@ dependencies:
   - certifi=2020.12.5=py39hecd8cb5_0
   - click=7.1.2=pyhd3eb1b0_0
   - flask=1.1.2=pyhd3eb1b0_0
+  - flask_cors=3.0.10=pyhd3eb1b0_0
   - itsdangerous=1.1.0=pyhd3eb1b0_0
   - jinja2=2.11.3=pyhd3eb1b0_0
   - libcxx=10.0.0=1
@@ -18,6 +19,7 @@ dependencies:
   - python=3.9.1=h88f2d9e_2
   - readline=8.1=h9ed2024_0
   - setuptools=52.0.0=py39hecd8cb5_0
+  - six=1.15.0=py39hecd8cb5_0
   - sqlite=3.33.0=hffcf06c_0
   - tk=8.6.10=hb0a8c7a_0
   - tzdata=2020f=h52ac0ba_0
