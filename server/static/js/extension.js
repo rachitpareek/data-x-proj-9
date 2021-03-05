@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
   document.getElementById("localservercontainer").style.visibility = "hidden";
 
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   async function getData(url) {
     let response = await fetch(url, {
       method: 'post',
-      body: JSON.stringify({test: "3"})
+      body: JSON.stringify({ test: "3" })
     });
     let text = await response.text()
     return text;
@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.getElementById("addlDetails").style.visibility = "hidden";
 
-  checkPageButton.addEventListener('click', function() {
+  checkPageButton.addEventListener('click', function () {
 
-    chrome.tabs.getSelected(null, function(tab) {
+    chrome.tabs.getSelected(null, function (tab) {
 
       d = document;
 
-      document.getElementById("tabName").innerHTML = "<h3>You are visiting " + tab["url"] + "</h3>";
+      document.getElementById("tabName").innerHTML = "You are visiting " + tab["url"];
 
       var ul = d.getElementById('tabDetails');
 
