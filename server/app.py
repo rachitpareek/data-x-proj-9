@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, redirect, url_for, make_response
-from flask_cors import CORS, cross_origin
-
 import json
+import pickle
+from util import *
+from flask_cors import CORS, cross_origin
+from flask import Flask, render_template, request, redirect, url_for, make_response
 
 # start flask
 app = Flask(__name__)
@@ -10,12 +11,29 @@ cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 # render default webpage
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    
-    data = json.loads(request.data)
-    print("RECEIVED DATA:")
-    print(data)
 
-    return render_template('home.html')
+    data = {}
+
+    print("was there any data?")
+    if request.data:
+        print("RECEIVED DATA:")
+        print(request.data)
+        data = json.loads(request.data)
+    
+    with open("./resources/model.pkl", 'rb') as file:
+        model = pickle.load(file)
+
+    with open("./resources/vectorizer.pkl", 'rb') as file:
+        vectorizer = pickle.load(file)
+
+    if "message" not in data:
+        data["message"] = "Space lasers cause forest fires"
+
+    output = model.predict(vectorizer.transform([data["message"]]))
+    
+    print(output)
+
+    return str(output)
 
 # render default webpage
 @app.route('/test')
