@@ -8,16 +8,20 @@ from flask import Flask, render_template, request, redirect, url_for, make_respo
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-# render default webpage
-@app.route('/', methods=['GET', 'POST'])
+# render extension webpage
+@app.route('/')
+def extension():
+    return render_template('extension.html')
+
+# api route
+@app.route('/api', methods=['GET', 'POST'])
 def home():
 
     data = {}
 
     print("was there any data?")
     if request.data:
-        print("RECEIVED DATA:")
-        print(request.data)
+        print("RECEIVED DATA.")
         data = json.loads(request.data)
     
     with open("./resources/model.pkl", 'rb') as file:
@@ -31,29 +35,14 @@ def home():
 
     output = model.predict(vectorizer.transform([data["message"]]))
     
+    print("DATA:", data)
     print(output)
 
     return str(output)
 
-# render default webpage
-@app.route('/test')
-def test():
-    return "TEST"
-
-# render default webpage
-@app.route('/extension')
-def extension():
-    return render_template('extension.html')
-
-# # render default webpage
-# @app.route('/')
-# def home():
-#     return render_template('home.html')
-
 @app.after_request
 def after_request_func(response):
     response.direct_passthrough = False
-    print(response.get_data())
     origin = request.headers.get('Origin')
     response = make_response(response)
     response.headers.add('Access-Control-Allow-Origin', '*')

@@ -1,4 +1,5 @@
 var articleText = "";
+const API_URL = "http://127.0.0.1:5000/api";
 
 chrome.runtime.onMessage.addListener(function(request, sender) {
   if (request.action == "getSource") {
@@ -26,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
   var localServerButton = document.getElementById('callLocalBtn');
 
   localServerButton.addEventListener('click', async function () {
-    var text = await getData("http://127.0.0.1:5000/");
-    console.log('text', text);
+    var text = await getData(API_URL);
+    text = text.replaceAll("'", "").replaceAll("[", "").replaceAll("]", "").toUpperCase();
     document.getElementById("localserverdata").innerHTML = text;
     document.getElementById("localservercontainer").style.visibility = "visible";
   })

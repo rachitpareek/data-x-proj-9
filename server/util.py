@@ -13,7 +13,7 @@ import pandas as pd
 import re
 import hashlib
  
-# download NLTK classifiers - these are cached locally on your machine
+# download NLTK classifiers - these are cached locally when server starts
 import nltk
 nltk.download('averaged_perceptron_tagger')
 nltk.download('wordnet')
@@ -45,8 +45,6 @@ def review_cleaner(review, lemmatize=True, stem=False):
         @review (type:str) is an unprocessed review string
         @return (type:str) is a 6-step preprocessed review string
     '''
-
-    
 
     if lemmatize == True and stem == True:
         raise RuntimeError("May not pass both lemmatize and stem flags")
