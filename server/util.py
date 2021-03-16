@@ -115,3 +115,38 @@ def get_vectorizer(ngram, max_features):
                              preprocessor = review_cleaner,
                              stop_words = None, 
                              max_features = max_features)
+
+def article_cleaner(article, lemmatize=True, stem=False):
+    #1. Remove HTML tags
+    review = bs.BeautifulSoup(article,features='lxml').text
+    #2. Use regex to find emoticons
+    emoticons = re.findall('(?::|;|=)(?:-)?(?:\)|\(|D|P)', article)
+    #3. Remove punctuation
+    article = re.sub("[^a-zA-Z]", " ",article)
+    #4. Tokenize into words (all lower case)
+    article_words = (str.lower(article.replace('.','. '))).split()
+    #5. Remove stopwords, Lemmatize, Stem
+    ### YOUR CODE HERE ##
+    article_wo_stopwords = [w for w in article_words if not w in eng_stopwords]
+    token_tag = pos_tag(article_wo_stopwords)
+    def get_wordnet_pos(treebank_tag):
+        if treebank_tag.startswith('J'):
+            return wordnet.ADJ
+        elif treebank_tag.startswith('V'):
+            return wordnet.VERB
+        elif treebank_tag.startswith('N'):
+            return wordnet.NOUN
+        elif treebank_tag.startswith('R'):
+            return wordnet.ADV
+        else:
+            return 'n'
+    wnl_stems = []
+    for pair in token_tag:
+        res = wnl.lemmatize(pair[0],pos=get_wordnet_pos(pair[1]))
+        wnl_stems.append(res)
+    for i in emoticons:
+        wnl_stems.append(i)
+    #6. Join the review to one sentence
+    article_processed = ' '.join(wnl_stems)
+    return article_processed
+    
