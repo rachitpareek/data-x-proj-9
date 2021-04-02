@@ -118,6 +118,8 @@ def home():
     predictions
     a = np.argmax(predictions, axis=1).flatten()
 
+    print("PREDICTIONS:", predictions)
+
     print(label_dict[a[0]])
 
     print("DATA:", data)
