@@ -5,6 +5,13 @@ from util import *
 from flask_cors import CORS, cross_origin
 from flask import Flask, render_template, request, redirect, url_for, make_response
 
+import torch
+import numpy as np
+import pandas as pd
+from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
+from transformers import BertTokenizer, BertForSequenceClassification
+from torch.utils.data import TensorDataset
+
 # start flask
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
@@ -56,24 +63,18 @@ def home():
                   10: 'junksci',
                   11: 'unknown'}
 
-    import torch
-    import numpy as np
-    import pandas as pd
-    from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
-    from transformers import BertTokenizer, BertForSequenceClassification
-    from torch.utils.data import TensorDataset
-
     data = [[text["message"]]]
     validate_data = pd.DataFrame(data, columns=['content'])
 
-    tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True)
+    tokenizer = BertTokenizer.from_pretrained(
+        'bert-base-uncased', do_lower_case=True)
 
     encoded_data_val = tokenizer.batch_encode_plus(
-        validate_data.content.values,  #article text being passed to encoder
-        add_special_tokens=True, 
-        return_attention_mask=True, 
-        pad_to_max_length=True, 
-        max_length=500, 
+        validate_data.content.values,  # article text being passed to encoder
+        add_special_tokens=True,
+        return_attention_mask=True,
+        pad_to_max_length=True,
+        max_length=500,
         return_tensors='pt'
     )
 
@@ -83,19 +84,22 @@ def home():
 
     batch_size = 2
 
-    dataloader_validation = DataLoader(dataset_val, sampler=SequentialSampler(dataset_val), batch_size=batch_size)
+    dataloader_validation = DataLoader(
+        dataset_val, sampler=SequentialSampler(dataset_val), batch_size=batch_size)
 
-    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+    device = torch.device(
+        'cuda') if torch.cuda.is_available() else torch.device('cpu')
     model = BertForSequenceClassification.from_pretrained("bert-base-uncased",
-                                                        num_labels=12,
-                                                        output_attentions=False,
-                                                        output_hidden_states=False)
+                                                          num_labels=12,
+                                                          output_attentions=False,
+                                                          output_hidden_states=False)
 
     model.to(device)
 
-    #file with model state is being loaded and used here
+    # file with model state is being loaded and used here
 
-    model.load_state_dict(torch.load('finetuned_BERT_epoch_3.model', map_location=torch.device('cpu')))
+    model.load_state_dict(torch.load(
+        'finetuned_BERT_epoch_3.model', map_location=torch.device('cpu')))
 
     model.eval()
 
@@ -104,9 +108,9 @@ def home():
 
         batch = tuple(b.to(device) for b in batch)
 
-        inputs = {'input_ids':      batch[0],'attention_mask': batch[1],}
+        inputs = {'input_ids':      batch[0], 'attention_mask': batch[1], }
 
-        with torch.no_grad():        
+        with torch.no_grad():
             outputs = model(**inputs)
 
         logits = outputs[0]
@@ -115,10 +119,12 @@ def home():
         #label_ids = inputs['labels'].cpu().numpy()
         predictions.append(logits)
     predictions = np.concatenate(predictions, axis=0)
-    predictions
+    preds = predictions
     a = np.argmax(predictions, axis=1).flatten()
 
     print("PREDICTIONS:", predictions)
+    std = [i[1] for i in sorted(list(zip(preds[0], label_dict.values())),key=lambda x:x[0])[::-1]]
+    print("SORTED:", std)
 
     print(label_dict[a[0]])
 
@@ -126,7 +132,7 @@ def home():
 
     print("TIME:", time.time()-start)
 
-    return str(label_dict[a[0]])
+    return " ".join([f"{str(i[0]+1)}: {i[1]};" for i in list(enumerate(std))][:3])
 
 
 @app.after_request
