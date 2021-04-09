@@ -1,5 +1,8 @@
-import json
 import time
+
+start = time.time()
+
+import json
 import pickle
 import numpy as np
 from util import *
@@ -24,7 +27,9 @@ label_dict = {0: 'rumor',
                 10: 'junksci',
                 11: 'unknown'}
 
-model, device = load_model()
+model, device, tokenizer = load_model()
+
+print("TIME TO START SERVER:", time.time() - start)
 
 # Route for full service webpage
 @app.route('/')
@@ -35,18 +40,18 @@ def extension():
 @app.route('/api', methods=['GET', 'POST'])
 def home():
 
-    global model, device, BATCH_SIZE
+    global model, device, tokenizer, BATCH_SIZE
 
     start = time.time()
 
     data = json.loads(request.data)["message"]
 
+    # Remove extra spaces from parsing HTML
+    data = " ".join(data.split())
+
     print("DATA:", data)
 
     validate_data = pd.DataFrame([[data]], columns=['content'])
-
-    tokenizer = BertTokenizer.from_pretrained(
-        'bert-base-uncased', do_lower_case=True)
 
     encoded_data_val = tokenizer.batch_encode_plus(
         validate_data.content.values, 

@@ -155,6 +155,9 @@ def article_cleaner(article, lemmatize=True, stem=False):
     
 
 def load_model():
+
+    tokenizer = BertTokenizer.from_pretrained(
+        'bert-base-uncased', do_lower_case=True)
     
     # Check for device CPU/GPU
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
@@ -171,4 +174,4 @@ def load_model():
         'finetuned_BERT_epoch_3.model', map_location=torch.device('cpu')))
     model.eval()
 
-    return model, device
+    return model, device, tokenizer
