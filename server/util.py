@@ -11,6 +11,10 @@ import bs4 as bs
 import numpy as np
 import pandas as pd
 import re
+import torch
+from torch.utils.data import TensorDataset
+from transformers import BertTokenizer, BertForSequenceClassification
+from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
 import hashlib
  
 # download NLTK classifiers - these are cached locally when server starts
@@ -27,6 +31,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import normalize, FunctionTransformer
 from sklearn.feature_extraction.text import CountVectorizer
 
+BATCH_SIZE = 5
 ps = PorterStemmer()
 wnl = WordNetLemmatizer()
 eng_stopwords = set(stopwords.words("english"))
@@ -148,3 +153,22 @@ def article_cleaner(article, lemmatize=True, stem=False):
     article_processed = ' '.join(wnl_stems)
     return article_processed
     
+
+def load_model():
+    
+    # Check for device CPU/GPU
+    device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
+
+    # Initialize the model
+    model = BertForSequenceClassification.from_pretrained("bert-base-uncased",
+                                                            num_labels=12,
+                                                            output_attentions=False,
+                                                            output_hidden_states=False)
+    model.to(device)
+
+    # File with trained model state is being loaded and used here
+    model.load_state_dict(torch.load(
+        'finetuned_BERT_epoch_3.model', map_location=torch.device('cpu')))
+    model.eval()
+
+    return model, device
