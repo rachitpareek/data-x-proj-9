@@ -34,7 +34,7 @@ print("TIME TO START SERVER:", time.time() - start)
 # Route for full service webpage
 @app.route('/')
 def extension():
-    return render_template('extension.html')
+    return render_template('home.html')
 
 # API route
 @app.route('/api', methods=['GET', 'POST'])
