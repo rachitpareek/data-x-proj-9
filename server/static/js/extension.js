@@ -19,17 +19,17 @@ document.addEventListener('DOMContentLoaded', function () {
   async function getData(url) {
     articleText = document.getElementById("textBox").value;
     console.log("ARTICLE TXT", articleText)
+    document.getElementsByClassName("lds-roller")[0].style.display = "block";
     let response = await fetch(url, {
       method: 'post',
       body: JSON.stringify({ message: articleText })
     });
     let text = await response.text()
+    document.getElementsByClassName("lds-roller")[0].style.visibility = "none";
     return text;
   }
 
   var checkPageButton = document.getElementById('checkPage');
-
-  document.getElementById("addlDetails").style.visibility = "hidden";
 
   checkPageButton.addEventListener('click', function () {
 
@@ -49,8 +49,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
     });
-
-    document.getElementById("addlDetails").style.visibility = "visible";
 
   }, false);
 

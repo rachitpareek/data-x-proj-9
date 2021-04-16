@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var localServerButton = document.getElementById('callLocalBtn');
 
   localServerButton.addEventListener('click', async function () {
+    document.getElementById("localservercontainer").style.visibility = "hidden";
+    document.getElementById("localserverdata").innerHTML = "";
     var text = await getData(API_URL);
     text = text.replaceAll("'", "").replaceAll("[", "").replaceAll("]", "").toUpperCase();
     document.getElementById("localserverdata").innerHTML = text;
@@ -46,18 +48,19 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
   async function getData(url) {
-    console.log("ARITCLE TXT", articleText)
+    console.log("ARTICLE TXT", articleText)
+    console.log(document.getElementsByClassName("lds-roller")[0])
+    document.getElementsByClassName("lds-roller")[0].style.display = "block";
     let response = await fetch(url, {
       method: 'post',
       body: JSON.stringify({ message: articleText })
     });
     let text = await response.text()
+    document.getElementsByClassName("lds-roller")[0].style.display = "none";
     return text;
   }
 
   var checkPageButton = document.getElementById('checkPage');
-
-  document.getElementById("addlDetails").style.visibility = "hidden";
 
   checkPageButton.addEventListener('click', function () {
 
@@ -77,8 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
     });
-
-    document.getElementById("addlDetails").style.visibility = "visible";
 
   }, false);
 

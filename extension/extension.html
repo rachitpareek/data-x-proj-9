@@ -17,31 +17,16 @@
     <div class="jumbotron mt-4">
 
       <h1 class="mx-auto">RelAIability</h1>
-      <h2 class="mx-auto">Chrome Browser fuck my cock</h2>
+      <h2 class="mx-auto">Chrome Browser</h2>
 
-      <div class="row">
-        <div class="card col-6" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">See details about current page!</h5>
-            <p class="card-text">This button retrieves info about the currently active page, proving we'll be able to
-              extract article/tweet text from it.</p>
-            <button id="checkPage" class="btn btn-primary mx-auto">Try it!</button>
-            <hr>
-            <h2 id="tabName"></h2>
-            <div id="addlDetails">
-              <h4>Additional Details</h4>
-              <ul id="tabDetails"></ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="card col-6" style="width: 18rem;">
+        <div class="card col-12">
           <div class="card-body">
             <h5 class="card-title">Analyze This Page</h5>
             <p class="card-text">This button makes a POST call to our local Flask server, which will eventually host our
               model.</p>
             <button id="callLocalBtn" class="btn btn-primary mx-auto">Analyze</button>
             <hr>
+            <div class="lds-roller" id="loader" style="display: none;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
             <div id="localservercontainer">
               <h3>Classification Returned From Server:</h3>
               <h4 id="localserverdata"></h4>
