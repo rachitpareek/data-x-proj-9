@@ -43,7 +43,7 @@ def info():
 
 # API route
 @app.route('/api', methods=['GET', 'POST'])
-def apii():
+def api():
 
     global model, device, tokenizer, BATCH_SIZE
 
