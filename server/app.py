@@ -95,8 +95,7 @@ def api():
 
     print("TIME:", time.time() - start)
 
-    return " ".join([f"{str(i[0]+1)}: {i[1]};" for i in list(enumerate(std))][:3])
-
+    return " ".join([f"{i};" for i in std[:5]])
 
 @app.after_request
 def after_request_func(response):
