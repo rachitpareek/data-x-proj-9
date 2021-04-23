@@ -1,8 +1,19 @@
-// Establish constants
+// Establish constants and functions
 var articleText = "";
 const API_URL = "http://127.0.0.1:5000/api";
 
-// Grab page HTML on extension load and extract article text
+async function getData(url) {
+  document.getElementsByClassName("lds-roller")[0].style.display = "block";
+  let response = await fetch(url, {
+    method: 'post',
+    body: JSON.stringify({ message: articleText })
+  });
+  let text = await response.text()
+  document.getElementsByClassName("lds-roller")[0].style.display = "none";
+  return text;
+}
+
+// Get page HTML on extension load and extract article text
 chrome.runtime.onMessage.addListener(function (request, sender) {
   if (request.action == "getSource") {
     var parser = new DOMParser();
@@ -26,13 +37,9 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
 // On page load, add event listeners to buttons
 document.addEventListener('DOMContentLoaded', function () {
 
-  var infoPageButton = document.getElementById('infoPageBtn');
+  document.getElementById("localservercontainer").style.visibility = "hidden";
 
-  infoPageButton.addEventListener('click', async function () {
-    var newURL = "http://localhost:5000/info";
-    chrome.tabs.create({ url: newURL });
-  })
-
+  // Extract article text from page HTML
   var message = document.querySelector('#message');
 
   chrome.tabs.executeScript(null, {
@@ -43,8 +50,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  document.getElementById("localservercontainer").style.visibility = "hidden";
+  // Set up infoPageButton
+  var infoPageButton = document.getElementById('infoPageBtn');
 
+  infoPageButton.addEventListener('click', async function () {
+    var newURL = "http://127.0.0.1:5000/info";
+    chrome.tabs.create({ url: newURL });
+  })
+
+  // Set up localServerButton
   var localServerButton = document.getElementById('callLocalBtn');
 
   localServerButton.addEventListener('click', async function () {
@@ -55,41 +69,5 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("localserverdata").innerHTML = text;
     document.getElementById("localservercontainer").style.visibility = "visible";
   })
-
-  async function getData(url) {
-    console.log("ARTICLE TXT", articleText)
-    console.log(document.getElementsByClassName("lds-roller")[0])
-    document.getElementsByClassName("lds-roller")[0].style.display = "block";
-    let response = await fetch(url, {
-      method: 'post',
-      body: JSON.stringify({ message: articleText })
-    });
-    let text = await response.text()
-    document.getElementsByClassName("lds-roller")[0].style.display = "none";
-    return text;
-  }
-
-  var checkPageButton = document.getElementById('checkPage');
-
-  checkPageButton.addEventListener('click', function () {
-
-    chrome.tabs.getSelected(null, function (tab) {
-
-      d = document;
-
-      document.getElementById("tabName").innerHTML = "<h3>You are visiting " + tab["url"] + "</h3>";
-
-      var ul = d.getElementById('tabDetails');
-
-      for (var key in tab) {
-        if (!tab.hasOwnProperty(key)) continue;
-        var li = document.createElement('li');
-        ul.appendChild(li);
-        li.innerHTML = key + ": " + tab[key];
-      }
-
-    });
-
-  }, false);
 
 }, false);
