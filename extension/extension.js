@@ -13,6 +13,46 @@ async function getData(url) {
   return text;
 }
 
+// Function to capitalize a string
+const capitalize = (s) => {
+  if (typeof s !== 'string') return ''
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
+// Return Bootstrap 4 list item color based on label
+const getListItemType = (item) => {
+  const ORANGE_CLASSES = ['satire', 'unreliable', 'junksci',
+    'rumor', 'clickbait', 'political', 'bias'];
+  const RED_CLASSES = ['fake', 'hate', 'conspiracy'];
+  const GREEN_CLASSES = ['reliable',];
+  const BLUE_CLASSES = ['unknown'];
+
+  if (ORANGE_CLASSES.includes(item)) {
+    return "list-group-item-warning";
+  } else if (RED_CLASSES.includes(item)) {
+    return "list-group-item-danger";
+  } else if (GREEN_CLASSES.includes(item)) {
+    return "list-group-item-success";
+  } else if (BLUE_CLASSES.includes(item)) {
+    return "list-group-item-primary";
+  }
+
+  return "";
+}
+
+const parseListItems = (text) => {
+  var items = "";
+  for (let val in text.split(";")) {
+    valText = text.split(";")[val];
+    valText = valText.replace(/\s+/g, ' ').trim();
+    if (valText !== "") {
+      items += "<li class=\"list-group-item " + getListItemType(valText) + "\">";
+      items += (Number(val) + 1) + ": " + capitalize(valText) + "</li>";
+    }
+  }
+  return items;
+}
+
 // Get page HTML on extension load and extract article text
 chrome.runtime.onMessage.addListener(function (request, sender) {
   if (request.action == "getSource") {
@@ -29,7 +69,6 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
         selector = "article-body__content";
         articleText = htmlDoc.getElementsByClassName(selector)[0].innerText;
       }
-      console.log(articleText);
     });
   }
 });
@@ -65,8 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("localservercontainer").style.visibility = "hidden";
     document.getElementById("localserverdata").innerHTML = "";
     var text = await getData(API_URL);
-    text = text.replaceAll("'", "").replaceAll("[", "").replaceAll("]", "").toUpperCase();
-    document.getElementById("localserverdata").innerHTML = text;
+    var listItems = parseListItems(text);
+    document.getElementById("localserverdata").innerHTML = "<ul class=\"list-group\">" + listItems + "</ul>";
     document.getElementById("localservercontainer").style.visibility = "visible";
   })
 
