@@ -33,12 +33,17 @@ print("TIME TO START SERVER:", time.time() - start)
 
 # Route for full service webpage
 @app.route('/')
-def extension():
+def home():
     return render_template('home.html')
+
+# Route for informational page webpage
+@app.route('/info')
+def info():
+    return render_template('info.html')
 
 # API route
 @app.route('/api', methods=['GET', 'POST'])
-def home():
+def apii():
 
     global model, device, tokenizer, BATCH_SIZE
 
@@ -48,6 +53,9 @@ def home():
 
     # Remove extra spaces from parsing HTML
     data = " ".join(data.split())
+
+    if len(data) == 0 or len(data.strip()) == 0 or data is None:
+        return "The server did not receive any text to classify."
 
     print("DATA:", data)
 

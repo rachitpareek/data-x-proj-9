@@ -11,3 +11,9 @@ For local setup:
 - Create conda environment from file: `conda env create -f environment.yml`
 - Take `finetuned_BERT_epoch_3.model` from Slack and copy into root directory of this repository
 - Run flask server with `python3 server/app.py`. It will take a few seconds/minutes to start up the first time, and fewer the next
+
+This should explain how to use the deploy script to set up the repo and run the server:
+1. `chmod +x deploy.sh` before running the deploy script for the first time.
+2. `./deploy.sh setup`
+3. `conda activate datax`
+4. See instructions in deploy.sh to run your desired command!

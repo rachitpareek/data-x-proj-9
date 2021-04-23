@@ -171,7 +171,7 @@ def load_model():
 
     # File with trained model state is being loaded and used here
     model.load_state_dict(torch.load(
-        'finetuned_BERT_epoch_{epoch}.model', map_location=torch.device('cpu')))
+        'finetuned_BERT_final.model', map_location=torch.device('cpu')))
     model.eval()
 
     return model, device, tokenizer
