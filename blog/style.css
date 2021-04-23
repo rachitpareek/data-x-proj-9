@@ -1,6 +1,9 @@
 /**********************************/
+
 /********** General CSS ***********/
+
 /**********************************/
+
 body {
     color: #000000;
     font-family: 'Montserrat', sans-serif;
@@ -13,9 +16,7 @@ a {
     transition: 0.5s;
 }
 
-a:hover,
-a:active,
-a:focus {
+a:hover, a:active, a:focus {
     color: #000000;
     outline: none;
     text-decoration: none;
@@ -27,21 +28,14 @@ p {
     color: #000000;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     margin: 0 0 15px 0;
     padding: 0;
     color: #000000;
     font-weight: 600;
 }
 
-h4,
-h5,
-h6 {
+h4, h5, h6 {
     font-weight: 400;
 }
 
@@ -71,12 +65,13 @@ h6 {
     color: #ffffff;
 }
 
+/**********************************/
+
+/********* Form Input CSS *********/
 
 /**********************************/
-/********* Form Input CSS *********/
-/**********************************/
-.form-control,
-.custom-select {
+
+.form-control, .custom-select {
     width: 100%;
     height: 35px;
     padding: 5px 15px;
@@ -85,24 +80,20 @@ h6 {
     margin-bottom: 15px
 }
 
-.form-control:focus,
-.custom-select:focus {
+.form-control:focus, .custom-select:focus {
     box-shadow: none;
     border-color: #FF6F61;
 }
 
-.custom-radio,
-.custom-checkbox {
+.custom-radio, .custom-checkbox {
     margin-bottom: 15px;
 }
 
-.custom-radio .custom-control-label::before,
-.custom-checkbox .custom-control-label::before {
+.custom-radio .custom-control-label::before, .custom-checkbox .custom-control-label::before {
     border-color: #cccccc;
 }
 
-.custom-radio .custom-control-input:checked~.custom-control-label::before,
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+.custom-radio .custom-control-input:checked~.custom-control-label::before, .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
     color: #ffffff;
     background: #FF6F61;
 }
@@ -119,10 +110,12 @@ button.btn:hover {
     border-color: #FF6F61;
 }
 
+/**********************************/
+
+/*********** Top Bar CSS **********/
 
 /**********************************/
-/*********** Top Bar CSS **********/
-/**********************************/
+
 .top-bar {
     padding: 2px 0;
     background: #000000;
@@ -175,16 +168,17 @@ button.btn:hover {
 }
 
 @media (max-width: 768px) {
-    .top-bar .tb-contact,
-    .top-bar .tb-menu {
+    .top-bar .tb-contact, .top-bar .tb-menu {
         text-align: center;
     }
 }
 
+/**********************************/
+
+/*********** Brand CSS ************/
 
 /**********************************/
-/*********** Brand CSS ************/
-/**********************************/
+
 .brand {
     margin: 15px 0;
     background: #ffffff;
@@ -250,22 +244,21 @@ button.btn:hover {
 }
 
 @media (max-width: 767.98px) {
-    .brand .b-logo,
-    .brand .b-ads,
-    .brand .b-search {
+    .brand .b-logo, .brand .b-ads, .brand .b-search {
         text-align: center;
         margin-bottom: 15px;
     }
-    
     .brand .b-search {
         margin-bottom: 0;
     }
 }
 
+/**********************************/
+
+/*********** Nav Bar CSS **********/
 
 /**********************************/
-/*********** Nav Bar CSS **********/
-/**********************************/
+
 .nav-bar {
     position: relative;
 }
@@ -283,16 +276,12 @@ button.btn:hover {
     padding: 0;
 }
 
-.navbar-dark .navbar-nav .nav-link,
-.navbar-dark .navbar-nav .nav-link:focus,
-.navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link.active {
+.navbar-dark .navbar-nav .nav-link, .navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link.active {
     padding: 10px 10px 8px 10px;
     color: #ffffff;
 }
 
-.navbar-dark .navbar-nav .nav-link:hover,
-.navbar-dark .navbar-nav .nav-link.active {
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link.active {
     border-bottom: 2px solid #000000;
     transition: none;
 }
@@ -305,15 +294,12 @@ button.btn:hover {
 }
 
 @media (min-width: 768px) {
-    .nav-bar,
-    .nav-bar .navbar {
+    .nav-bar, .nav-bar .navbar {
         background: #FF6F61 !important;
     }
-    
     .nav-bar .navbar-brand {
         display: none;
     }
-    
     .nav-bar a.nav-link {
         padding: 8px 15px;
         font-size: 15px;
@@ -321,21 +307,17 @@ button.btn:hover {
     }
 }
 
-@media (max-width: 768px) {   
-    .nav-bar,
-    .nav-bar .navbar {
+@media (max-width: 768px) {
+    .nav-bar, .nav-bar .navbar {
         padding: 3px 0;
         background: #FF6F61 !important;
     }
-    
     .nav-bar a.nav-link {
         padding: 5px;
     }
-    
     .nav-bar .dropdown-menu {
         box-shadow: none;
     }
-    
     .nav-bar .social {
         display: none;
     }
@@ -372,10 +354,12 @@ button.btn:hover {
     color: #FF6F61;
 }
 
+/**********************************/
+
+/********** Top News CSS **********/
 
 /**********************************/
-/********** Top News CSS **********/
-/**********************************/
+
 .top-news {
     position: relative;
     width: 100%;
@@ -398,9 +382,9 @@ button.btn:hover {
 
 .top-news .tn-title {
     position: absolute;
-    top: 0; 
+    top: 0;
     right: 0;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
     padding: 15px 10px 15px 20px;
     background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
@@ -439,8 +423,7 @@ button.btn:hover {
     padding: 0;
 }
 
-.top-news .slick-prev,
-.top-news .slick-next {
+.top-news .slick-prev, .top-news .slick-next {
     width: 28px;
     height: 28px;
     z-index: 1;
@@ -458,16 +441,12 @@ button.btn:hover {
     right: 30px;
 }
 
-.top-news .slick-prev:hover,
-.top-news .slick-prev:focus,
-.top-news .slick-next:hover,
-.top-news .slick-next:focus {
+.top-news .slick-prev:hover, .top-news .slick-prev:focus, .top-news .slick-next:hover, .top-news .slick-next:focus {
     color: #ffffff;
     background: #FF6F61;
 }
 
-.top-news .slick-prev::before,
-.top-news .slick-next::before {
+.top-news .slick-prev::before, .top-news .slick-next::before {
     font-family: "Font Awesome 5 Free";
     font-size: 18px;
     font-weight: 900;
@@ -482,10 +461,12 @@ button.btn:hover {
     content: "\f105";
 }
 
+/**********************************/
+
+/******* Category News CSS ********/
 
 /**********************************/
-/******* Category News CSS ********/
-/**********************************/
+
 .cat-news {
     position: relative;
     width: 100%;
@@ -519,9 +500,9 @@ button.btn:hover {
 
 .cat-news .cn-title {
     position: absolute;
-    top: 0; 
+    top: 0;
     right: 0;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
     padding: 15px 10px 15px 20px;
     background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
@@ -542,8 +523,7 @@ button.btn:hover {
     color: #FF6F61;
 }
 
-.cat-news .slick-prev,
-.cat-news .slick-next {
+.cat-news .slick-prev, .cat-news .slick-next {
     top: -62px;
     width: 28px;
     height: 28px;
@@ -562,16 +542,12 @@ button.btn:hover {
     right: 14px;
 }
 
-.cat-news .slick-prev:hover,
-.cat-news .slick-prev:focus,
-.cat-news .slick-next:hover,
-.cat-news .slick-next:focus {
+.cat-news .slick-prev:hover, .cat-news .slick-prev:focus, .cat-news .slick-next:hover, .cat-news .slick-next:focus {
     color: #ffffff;
     background: #FF6F61;
 }
 
-.cat-news .slick-prev::before,
-.cat-news .slick-next::before {
+.cat-news .slick-prev::before, .cat-news .slick-next::before {
     font-family: "Font Awesome 5 Free";
     font-size: 18px;
     font-weight: 900;
@@ -586,10 +562,12 @@ button.btn:hover {
     content: "\f105";
 }
 
+/**********************************/
+
+/********** Tab News CSS **********/
 
 /**********************************/
-/********** Tab News CSS **********/
-/**********************************/
+
 .tab-news {
     position: relative;
 }
@@ -604,8 +582,7 @@ button.btn:hover {
     border-radius: 0;
 }
 
-.tab-news .nav.nav-pills .nav-link:hover,
-.tab-news .nav.nav-pills .nav-link.active {
+.tab-news .nav.nav-pills .nav-link:hover, .tab-news .nav.nav-pills .nav-link.active {
     color: #ffffff;
     background: #FF6F61;
 }
@@ -645,11 +622,12 @@ button.btn:hover {
     color: #FF6F61;
 }
 
-
-
 /**********************************/
+
 /********** Main News CSS *********/
+
 /**********************************/
+
 .main-news {
     position: relative;
     width: 100%;
@@ -676,9 +654,9 @@ button.btn:hover {
 
 .main-news .mn-title {
     position: absolute;
-    top: 0; 
+    top: 0;
     right: 0;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
     padding: 15px 10px 15px 20px;
     background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
@@ -717,11 +695,11 @@ button.btn:hover {
 }
 
 .main-news .mn-list ul li {
-    margin: 0 0 12px 22px; 
+    margin: 0 0 12px 22px;
 }
 
 .main-news .mn-list ul li:last-child {
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .main-news .mn-list ul li a {
@@ -743,10 +721,12 @@ button.btn:hover {
     color: #FF6F61;
 }
 
+/**********************************/
+
+/********* Breadcrumb CSS *********/
 
 /**********************************/
-/********* Breadcrumb CSS *********/
-/**********************************/
+
 .breadcrumb-wrap {
     position: relative;
     width: 100%;
@@ -759,7 +739,7 @@ button.btn:hover {
     background: none;
 }
 
-.breadcrumb-wrap .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+.breadcrumb-wrap .breadcrumb .breadcrumb-item+.breadcrumb-item::before {
     color: #353535;
 }
 
@@ -767,10 +747,12 @@ button.btn:hover {
     color: #353535;
 }
 
+/**********************************/
+
+/********* Single News CSS ********/
 
 /**********************************/
-/********* Single News CSS ********/
-/**********************************/
+
 .single-news {
     position: relative;
     width: 100%;
@@ -826,9 +808,9 @@ button.btn:hover {
 
 .single-news .sn-slider .sn-title {
     position: absolute;
-    top: 0; 
+    top: 0;
     right: 0;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
     padding: 15px 10px 15px 20px;
     background-image: linear-gradient(rgba(0, 0, 0, .0), rgba(0, 0, 0, .3), rgba(0, 0, 0, .9));
@@ -849,8 +831,7 @@ button.btn:hover {
     color: #FF6F61;
 }
 
-.single-news .sn-slider .slick-prev,
-.single-news .sn-slider .slick-next {
+.single-news .sn-slider .slick-prev, .single-news .sn-slider .slick-next {
     top: -62px;
     width: 28px;
     height: 28px;
@@ -869,16 +850,12 @@ button.btn:hover {
     right: 14px;
 }
 
-.single-news .sn-slider .slick-prev:hover,
-.single-news .sn-slider .slick-prev:focus,
-.single-news .sn-slider .slick-next:hover,
-.single-news .sn-slider .slick-next:focus {
+.single-news .sn-slider .slick-prev:hover, .single-news .sn-slider .slick-prev:focus, .single-news .sn-slider .slick-next:hover, .single-news .sn-slider .slick-next:focus {
     color: #ffffff;
     background: #FF6F61;
 }
 
-.single-news .sn-slider .slick-prev::before,
-.single-news .sn-slider .slick-next::before {
+.single-news .sn-slider .slick-prev::before, .single-news .sn-slider .slick-next::before {
     font-family: "Font Awesome 5 Free";
     font-size: 18px;
     font-weight: 900;
@@ -893,10 +870,12 @@ button.btn:hover {
     content: "\f105";
 }
 
+/**********************************/
+
+/*********** Sidebar CSS **********/
 
 /**********************************/
-/*********** Sidebar CSS **********/
-/**********************************/
+
 .sidebar {
     position: relative;
     width: 100%;
@@ -960,8 +939,7 @@ button.btn:hover {
     border-radius: 0;
 }
 
-.sidebar .tab-news .nav.nav-pills .nav-link:hover,
-.sidebar .tab-news .nav.nav-pills .nav-link.active {
+.sidebar .tab-news .nav.nav-pills .nav-link:hover, .sidebar .tab-news .nav.nav-pills .nav-link.active {
     color: #ffffff;
     background: #FF6F61;
 }
@@ -1015,11 +993,11 @@ button.btn:hover {
 }
 
 .sidebar .category ul li {
-    margin: 0 0 12px 22px; 
+    margin: 0 0 12px 22px;
 }
 
 .sidebar .category ul li:last-child {
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .sidebar .category ul li a {
@@ -1083,17 +1061,18 @@ button.btn:hover {
     -webkit-filter: blur(3px);
 }
 
+/**********************************/
+
+/********** Contact CSS ***********/
 
 /**********************************/
-/********** Contact CSS ***********/
-/**********************************/
+
 .contact {
     position: relative;
     padding: 25px 0 15px 0;
 }
 
-.contact .contact-form,
-.contact .contact-info {
+.contact .contact-form, .contact .contact-info {
     margin-bottom: 45px;
 }
 
@@ -1138,10 +1117,12 @@ button.btn:hover {
     color: #ffffff;
 }
 
+/**********************************/
+
+/********** Footer CSS ************/
 
 /**********************************/
-/********** Footer CSS ************/
-/**********************************/
+
 .footer {
     position: relative;
     padding: 60px 0 0 0;
@@ -1174,11 +1155,11 @@ button.btn:hover {
 }
 
 .footer .footer-widget ul li {
-    margin-bottom: 12px; 
+    margin-bottom: 12px;
 }
 
 .footer .footer-widget ul li:last-child {
-    margin-bottom: 0; 
+    margin-bottom: 0;
 }
 
 .footer .footer-widget ul li a {
@@ -1277,15 +1258,16 @@ button.btn:hover {
     background: #FF6F61;
 }
 
-.footer .newsletter input:focus,
-.footer .newsletter .btn:focus {
+.footer .newsletter input:focus, .footer .newsletter .btn:focus {
     box-shadow: none;
 }
 
+/**********************************/
+
+/******** Footer Menu CSS *********/
 
 /**********************************/
-/******** Footer Menu CSS *********/
-/**********************************/
+
 .footer-menu {
     position: relative;
     background: #111111;
@@ -1319,10 +1301,12 @@ button.btn:hover {
     border-right: none;
 }
 
+/**********************************/
+
+/******** Footer Bottom CSS *******/
 
 /**********************************/
-/******** Footer Bottom CSS *******/
-/**********************************/
+
 .footer-bottom {
     position: relative;
     padding: 25px 0;
@@ -1337,26 +1321,22 @@ button.btn:hover {
     text-align: right;
 }
 
-.footer-bottom .copyright p,
-.footer-bottom .template-by p {
+.footer-bottom .copyright p, .footer-bottom .template-by p {
     color: #ffffff;
     font-weight: 400;
     margin: 0;
 }
 
-.footer-bottom .copyright p a,
-.footer-bottom .template-by p a {
+.footer-bottom .copyright p a, .footer-bottom .template-by p a {
     font-weight: 600;
 }
 
-.footer-bottom .copyright p a:hover,
-.footer-bottom .template-by p a:hover {
+.footer-bottom .copyright p a:hover, .footer-bottom .template-by p a:hover {
     color: #ffffff;
 }
 
 @media (max-width: 768.98px) {
-    .footer-bottom .copyright,
-    .footer-bottom .template-by {
-        text-align: center; 
-    } 
+    .footer-bottom .copyright, .footer-bottom .template-by {
+        text-align: center;
+    }
 }

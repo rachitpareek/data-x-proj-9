@@ -1,6 +1,8 @@
+// Establish constants
 var articleText = "";
 const API_URL = "http://127.0.0.1:5000/api";
 
+// Grab page HTML on extension load and extract article text
 chrome.runtime.onMessage.addListener(function (request, sender) {
   if (request.action == "getSource") {
     var parser = new DOMParser();
@@ -21,14 +23,21 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
   }
 });
 
+// On page load, add event listeners to buttons
 document.addEventListener('DOMContentLoaded', function () {
+
+  var infoPageButton = document.getElementById('infoPageBtn');
+
+  infoPageButton.addEventListener('click', async function () {
+    var newURL = "http://localhost:5000/info";
+    chrome.tabs.create({ url: newURL });
+  })
 
   var message = document.querySelector('#message');
 
   chrome.tabs.executeScript(null, {
     file: "getPagesSource.js"
   }, function () {
-    // If you try and inject into an extensions page or the webstore/NTP you'll get an error
     if (chrome.runtime.lastError) {
       message.innerText = 'There was an error injecting script : \n' + chrome.runtime.lastError.message;
     }
@@ -39,6 +48,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var localServerButton = document.getElementById('callLocalBtn');
 
   localServerButton.addEventListener('click', async function () {
+    document.getElementById("localservercontainer").style.visibility = "hidden";
+    document.getElementById("localserverdata").innerHTML = "";
     var text = await getData(API_URL);
     text = text.replaceAll("'", "").replaceAll("[", "").replaceAll("]", "").toUpperCase();
     document.getElementById("localserverdata").innerHTML = text;
@@ -46,18 +57,19 @@ document.addEventListener('DOMContentLoaded', function () {
   })
 
   async function getData(url) {
-    console.log("ARITCLE TXT", articleText)
+    console.log("ARTICLE TXT", articleText)
+    console.log(document.getElementsByClassName("lds-roller")[0])
+    document.getElementsByClassName("lds-roller")[0].style.display = "block";
     let response = await fetch(url, {
       method: 'post',
       body: JSON.stringify({ message: articleText })
     });
     let text = await response.text()
+    document.getElementsByClassName("lds-roller")[0].style.display = "none";
     return text;
   }
 
   var checkPageButton = document.getElementById('checkPage');
-
-  document.getElementById("addlDetails").style.visibility = "hidden";
 
   checkPageButton.addEventListener('click', function () {
 
@@ -77,8 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
     });
-
-    document.getElementById("addlDetails").style.visibility = "visible";
 
   }, false);
 

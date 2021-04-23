@@ -1,90 +1,541 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js">
-<!--<![endif]-->
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
+    <meta charset="utf-8">
+    <title>Bootstrap News Template - Free HTML Templates</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Bootstrap News Template - Free HTML Templates" name="keywords">
+    <meta content="Bootstrap News Template - Free HTML Templates" name="description">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
 
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="blog.css">
-  <script src="../js/vendor/modernizr-2.6.1.min.js"></script>
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/slick/slick.css" rel="stylesheet">
+    <link href="lib/slick/slick-theme.css" rel="stylesheet">
 
-
-
+    <!-- Template Stylesheet -->
+    <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
-  <!--[if lt IE 7]>
-    <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
-  <![endif]-->
-
-  <div id="container">
-    <div id="header">
-
+    <!-- Top Bar Start -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="tb-contact">
+                        <p><i class="fas fa-envelope"></i>info@mail.com</p>
+                        <p><i class="fas fa-phone-alt"></i>+012 345 6789</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="tb-menu">
+                        <a href="">About</a>
+                        <a href="">Privacy</a>
+                        <a href="">Terms</a>
+                        <a href="">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="body">
+    <!-- Top Bar Start -->
 
-      <!-- demo content lovingly lifted from the azbuka project 
-           http://code.google.com/p/azbuka/ 
-           
-           and the bluetrip project
-           http://bluetrip.org/  
-      -->
+    <!-- Brand Start -->
+    <div class="brand">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4">
+                    <div class="b-logo">
+                        <a href="index.html">
+                            <img src="logo.png" alt="Logo">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-4">
+                    <div class="b-ads">
+                        <a href="https://htmlcodex.com">
+
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="b-search">
+                        <input type="text" placeholder="Search">
+                        <button><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Brand End -->
+
+    <!-- Nav Bar Start -->
+    <div class="nav-bar">
+        <div class="container">
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                <a href="#" class="navbar-brand">MENU</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Sub Item 1</a>
+                                <a href="#" class="dropdown-item">Sub Item 2</a>
+                            </div>
+                        </div>
+                        <a href="single-page.html" class="nav-item nav-link active">Single Page</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                    </div>
+                    <div class="social ml-auto">
+                        <a href=""><i class="fab fa-twitter"></i></a>
+                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                        <a href=""><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Nav Bar End -->
+
+    <!-- Breadcrumb Start -->
+    <div class="breadcrumb-wrap">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">News</a></li>
+                <li class="breadcrumb-item active">News details</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- Single News Start-->
+    <div class="single-news">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="sn-container">
+                        <div class="sn-img">
+                            <img
+                                src="https://as01.epimg.net/en/imagenes/2019/09/24/football/1569310945_447431_noticia_normal.jpg" />
+                        </div>
+                        <div class="sn-content" id="articleText">
+
+                            <h1 class="sn-title">Transfer news : Cristiano Ronaldo back to Real Madrid?</h1>
+                            <p>
+                                Zidane smiled and waxed lyrical when asked about Ronaldo, and who can blame him?
+
+                            </p>
+                            <p>
+                                “You know what Ronaldo is for Real Madrid, what he’s done and a player that is dear to
+                                us all,” Zidane said.
+                                “The most important thing is that he is a Juventus player and we have to respect this.”
 
 
+                            </p>
+                            <p>
+                                The Portuguese forward will go down as one of the greatest players in Real Madrid
+                                history, if not the best ever, and his legendary status is intact. A return wouldn’t
+                                impact that, but it would be fun.
+                            </p>
 
-      <h1 class="jumbotron mt-1">Transfer news: Cristiano Ronaldo to Real Madrid</h1>
-      <hr />
-      <h3>What has Zidane said about a return for Ronaldo?</h3>
-      <p id="articleText">Zidane smiled and waxed lyrical when asked about Ronaldo, and who can blame him?
+                            <p>
+                                The key thing here: if Ronaldo returns, does that mean captain and fellow legend Sergio
+                                Ramos will sign a new contract? Do Real have the funds to bring the superstar back? Or
+                                keep all of their star players?
 
-        “You know what Ronaldo is for Real Madrid, what he’s done and a player that is dear to us all,” Zidane said.
-        “The most important thing is that he is a Juventus player and we have to respect this.”
+                            </p>
+                            <p>
+                                It seems like Juve are keen to move Ronaldo on, and Real are one of the few teams who
+                                could afford his wages.
 
-        The Portuguese forward will go down as one of the greatest players in Real Madrid history, if not the best ever,
-        and his legendary status is intact. A return wouldn’t impact that, but it would be fun.
+                            <p>
+                                Ronaldo left Real Madrid just before Zidane was fired and now he’s back in charge,
+                                perhaps we will get a few more years of a return to the true Galactico era?
 
-        The key thing here: if Ronaldo returns, does that mean captain and fellow legend Sergio Ramos will sign a new
-        contract? Do Real have the funds to bring the superstar back? Or keep all of their star players?
+                        </div>
+                    </div>
+                    <div class="sn-related">
+                        <h2>Related News</h2>
+                        <div class="row sn-slider">
+                            <div class="col-md-4">
+                                <div class="sn-img">
+                                    <img src="http://colombiacv.com/img/news-350x223-1.jpg" />
+                                    <div class="sn-title">
+                                        <a href="">Iphone better than Android?</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="sn-img">
+                                    <img src="http://colombiacv.com/img/news-350x223-2.jpg" />
+                                    <div class="sn-title">
+                                        <a href="">Planking feels like an eternity?</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="sn-img">
+                                    <img src="http://colombiacv.com/img/news-350x223-3.jpg" />
+                                    <div class="sn-title">
+                                        <a href="">Having 2 kids is bad for your mental health?</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="sn-img">
+                                    <img src="news-350x223-4.jpg" />
+                                    <div class="sn-title">
+                                        <a href=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        It seems like Juve are keen to move Ronaldo on, and Real are one of the few teams who could afford his wages.
+                <div class="col-lg-4">
+                    <div class="sidebar">
+                        <div class="sidebar-widget">
+                            <h2 class="sw-title">In This Category</h2>
+                            <div class="news-list">
+                                <div class="nl-item">
+                                    <div class="nl-img">
+                                        <img src="http://colombiacv.com/img/news-350x223-1.jpg" />
+                                    </div>
+                                    <div class="nl-title">
+                                        <a href="">Excessive phone usage leads to brain haemmorage</a>
+                                    </div>
+                                </div>
+                                <div class="nl-item">
+                                    <div class="nl-img">
+                                        <img src="http://colombiacv.com/img/news-350x223-2.jpg" />
+                                    </div>
+                                    <div class="nl-title">
+                                        <a href="">Exercising 2 hours daily makes you look like This</a>
+                                    </div>
+                                </div>
+                                <div class="nl-item">
+                                    <div class="nl-img">
+                                        <img src="http://colombiacv.com/img/news-350x223-3.jpg" />
+                                    </div>
+                                    <div class="nl-title">
+                                        <a href="">Playing video games is actually good for growth</a>
+                                    </div>
+                                </div>
+                                <div class="nl-item">
+                                    <div class="nl-img">
+                                        <img src="http://colombiacv.com/img/news-350x223-4.jpg" />
+                                    </div>
+                                    <div class="nl-title">
+                                        <a href="">Stressed about your upcoming meeting, click here </a>
+                                    </div>
+                                </div>
+                                <div class="nl-item">
+                                    <div class="nl-img">
+                                        <img src="http://colombiacv.com/img/news-350x223-5.jpg" />
+                                    </div>
+                                    <div class="nl-title">
+                                        <a href="">Women in Saudi Arabia finally allowed to drive </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-        Ronaldo left Real Madrid just before Zidane was fired and now he’s back in charge, perhaps we will get a few
-        more years of a return to the true Galactico era?</p>
+                        <div class="sidebar-widget">
+                            <div class="image">
 
-      <p>
-        After winning back-to-back Serie A titles, Ronaldo has failed to help Juve win the Champions League during his
-        three-season stay in Turin as they’ve been dumped out of the competition without getting past the quarterfinal
-        stage.
+                            </div>
+                        </div>
 
-        He has one more year left on his huge contract at Juve but there is a lot of talk that Andrea Pirlo wants to
-        build a new-look team around younger players and the Italian giants would be keen to move on Ronaldo’s huge
-        wages.
+                        <div class="sidebar-widget">
+                            <div class="tab-news">
+                                <ul class="nav nav-pills nav-justified">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="pill" href="#featured">Featured</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="pill" href="#popular">Popular</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="pill" href="#latest">Latest</a>
+                                    </li>
+                                </ul>
 
-        Overall, he’s scored 92 goals in 121 appearances for Juve in all competitions, which is still incredible, but
-        not leading them to the Champions League title will be seen as a failure.
-      </p>
+                                <div class="tab-content">
+                                    <div id="featured" class="container tab-pane active">
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-1.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">Candy crush crushes your brain</a>
+                                            </div>
+                                        </div>
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-2.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">Working out in groups is actually depressing</a>
+                                            </div>
+                                        </div>
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-3.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">Why using condoms is essential?</a>
+                                            </div>
+                                        </div>
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-4.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">Bored of your boss' lectures, need a new job?</a>
+                                            </div>
+                                        </div>
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-5.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">Flight tickets to Iran at $100</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="popular" class="container tab-pane fade">
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-4.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">Phone is a new murder weapon</a>
+                                            </div>
+                                        </div>
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-3.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">Exercise wastes time, just eat healthy</a>
+                                            </div>
+                                        </div>
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-2.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">Why Kids should go to school and have fun</a>
+                                            </div>
+                                        </div>
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-1.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">Meetings are a place to die</a>
+                                            </div>
+                                        </div>
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-2.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">Vishnu Vijaykumar is a legend</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="latest" class="container tab-pane fade">
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-3.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">Chelsea 2 - 5 West brom</a>
+                                            </div>
+                                        </div>
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-4.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">Rachit Pareek u beauty</a>
+                                            </div>
+                                        </div>
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-5.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">Sameer is salty that stamford bridge got breached</a>
+                                            </div>
+                                        </div>
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-4.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">Its gonna rain today </a>
+                                            </div>
+                                        </div>
+                                        <div class="tn-news">
+                                            <div class="tn-img">
+                                                <img src="http://colombiacv.com/img/news-350x223-3.jpg" />
+                                            </div>
+                                            <div class="tn-title">
+                                                <a href="">LMAO</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-      <blockquote>
-        <p>In the latest transfer news, Cristiano Ronaldo to Real Madrid is apparently something which could happen.
-          Seriously.</p>
-      </blockquote>
+                        <div class="sidebar-widget">
+                            <div class="image">
+                                <a href="https://htmlcodex.com">
+                            </div>
+                        </div>
 
-      <img src="https://en.as.com/en/imagenes/2021/03/03/football/1614726299_002017_noticia_normal.jpg"
-        alt="RONALDOOOOOOOOO" width="500" height="600">
+                        <div class="sidebar-widget">
+                            <h2 class="sw-title">News Category</h2>
+                            <div class="category">
+                                <ul>
+                                    <li><a href="">National</a><span>(98)</span></li>
+                                    <li><a href="">International</a><span>(87)</span></li>
+                                    <li><a href="">Economics</a><span>(76)</span></li>
+                                    <li><a href="">Politics</a><span>(65)</span></li>
+                                    <li><a href="">Lifestyle</a><span>(54)</span></li>
+                                    <li><a href="">Technology</a><span>(43)</span></li>
+                                    <li><a href="">Trades</a><span>(32)</span></li>
+                                </ul>
+                            </div>
+                        </div>
 
+                        <div class="sidebar-widget">
+                            <h2 class="sw-title">Tags Cloud</h2>
+                            <div class="tags">
+                                <a href="">National</a>
+                                <a href="">International</a>
+                                <a href="">Economics</a>
+                                <a href="">Politics</a>
+                                <a href="">Lifestyle</a>
+                                <a href="">Technology</a>
+                                <a href="">Trades</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Single News End-->
+
+    <!-- Footer Start -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h3 class="title">Get in Touch</h3>
+                        <div class="contact-info">
+                            <p><i class="fa fa-map-marker"></i>123 News Street, NY, USA</p>
+                            <p><i class="fa fa-envelope"></i>info@example.com</p>
+                            <p><i class="fa fa-phone"></i>+123-456-7890</p>
+                            <div class="social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                                <a href=""><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h3 class="title">Useful Links</h3>
+                        <ul>
+                            <li><a href="#">Rachit Pareek</a></li>
+                            <li><a href="#">Estella Liu</a></li>
+                            <li><a href="#">Aryan Kanoi</a></li>
+                            <li><a href="#">Vijay Vishnukumar</a></li>
+                            <li><a href="#">Mingcheng Wang</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h3 class="title">Quick Links</h3>
+                        <ul>
+                            <li><a href="#">Sameer Prabhu</a></li>
+                            <li><a href="#">Rachit Pareek</a></li>
+                            <li><a href="#">Aryan Kanoi</a></li>
+                            <li><a href="#">Vijay Vishnukumar</a></li>
+                            <li><a href="#">Estella liu</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h3 class="title">Newsletter</h3>
+                        <div class="newsletter">
+                            <p>
+                                Can you please tell us how to pronounce HAIX.
+                            </p>
+                            <form>
+                                <input class="form-control" type="email" placeholder="Your email here">
+                                <button class="btn">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Footer Menu Start -->
+    <div class="footer-menu">
+        <div class="container">
+            <div class="f-menu">
+                <a href="">Terms of use</a>
+                <a href="">Privacy policy</a>
+                <a href="">Cookies</a>
+                <a href="">Accessibility help</a>
+                <a href="">Advertise with us</a>
+                <a href="">Contact us</a>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Menu End -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
 
 </body>
 
