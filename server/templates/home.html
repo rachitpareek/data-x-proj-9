@@ -7,6 +7,7 @@
   <!-- Bootstrap! -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
 <body>
@@ -21,12 +22,13 @@
       <div class="card col-12">
         <div class="card-body">
           <h5 class="card-title">Analyze This Page</h5>
-          <p class="card-text">Calling analyze makes a call to our local server, which will classify your text. See more details about classifications on the information page.</p>
+          <p class="card-text">Calling analyze makes a call to our local server, which will classify your text. See more
+            details about classifications on the information page.</p>
           <hr>
           <textarea id="textBox" name="textBox">Enter your text here...</textarea>
           <hr>
           <button id="callLocalBtn" class="btn btn-primary mx-auto">Analyze</button>
-          <button id="infoPageBtn" class="btn btn-success">Info Page</button>
+          <a href="/info" id="infoPageBtn" class="btn btn-success">Info Page</a>
           <hr>
           <div class="lds-roller" id="loader" style="display: none;">
             <div></div>
