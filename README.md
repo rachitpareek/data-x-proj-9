@@ -1,4 +1,4 @@
-# Fake News RelAIability
+# RelAIability
 
 A tool to identify reliability of a news article
 
