@@ -62,7 +62,7 @@ def api():
     validate_data = pd.DataFrame([[data]], columns=['content'])
 
     encoded_data_val = tokenizer.batch_encode_plus(
-        validate_data.content.values, 
+        validate_data.content.values,
         add_special_tokens=True,
         return_attention_mask=True,
         pad_to_max_length=True,
