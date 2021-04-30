@@ -70,7 +70,7 @@ The dataset is formatted as a CSV and contains the following fields:
   - RandomForest_datax_final.ipynb : code used in low tech demo for a random forest model that would serve as a placeholder while the team worked on implementing BERT. Ramdom Forest was chosen due to its suitability for classification problems and quick implementability. 
   - training_bert.ipynb : code used to train BERT model, and outputting model metrics and confusion matrix over prediction for the test set. pre-trained BERT Base Uncased model is trained upon the dataset from FakeNewsChallenge's 10000 rows in the PyTorch environment.
   - code_to_predict.ipynb : code that shows how to make a prediction with the saved BERT model for a sample text.
-  - training_bertnewarch.ipynb : code that adds additional drop-put layers to BERT model to improve performance.
+  - training_bertnewarch.ipynb : code that adds additional drop-put layers to BERT model to improve performance. This represents potential future improvements to the current model.
 
 ### Performance
 
