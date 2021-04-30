@@ -81,5 +81,5 @@ The directory contains codes that were used for expirmenting with the models and
 We have an informational page hosted by the server that provides explanations of what each label actually means for the user. 
 
 ### Performance
-
+We have created various performance enhancements that have significantly decreased our training time, server startup time, and text analysis times. We improved training time primarily by renting time on a large AWS server, which decreased our per-epoch training time from 6 hours to 10 minutes each. Our server startup time decreased from ~90 seconds to 8 thanks to improvements with NLTK token caching, model in-memory caching, and more. This also decreased text analysis time from ~7 seconds to about 1.5 seconds. We also hosted our pretrained model file in Google Drive to keep this repository itself lightweight.
 
