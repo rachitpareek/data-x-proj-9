@@ -1,28 +1,32 @@
 # RelAIability
 
-A tool to identify reliability of a news article
+A tool to identify reliability of a news article.
 
-RelAibility aims to help internet news-readers by analysing the new sites for fake news. It prevents its users from falling for a plethora of  fake news articles available on the internet. It is user friendly and also gives labels based on how accurate the news presented in the article is. 
+RelAibility aims to help internet news-readers by analysing the new sites for fake news. It prevents its users from falling for a plethora of  fake news articles available on the internet. It is user friendly and also gives classification labels using a Google BERT-based model that is hosted using a Flask API and is consumed by a frontend and a Google Chrome extension. 
 
-## Prerequisites
-
-lists of the software and envrionment that need to be installed. (Python 3.6, Pytorch..)
-
-#### local setup:
-
-- Clone this repository: `git clone https://github.com/rachitpareek/data-x-proj-9`
-- Create conda environment from file: `conda env create -f environment.yml`
-- Take `finetuned_BERT_epoch_3.model` from Slack and copy into root directory of this repository
-- Run flask server with `python3 server/app.py`. It will take a few seconds/minutes to start up the first time, and fewer the next
-
-#### Installing and steps to run the server:
+### Installing and steps to run the server and extension after cloning this repository:
 
 1. `chmod +x deploy.sh` before running the deploy script for the first time.
 2. `./deploy.sh setup`
 3. `conda activate datax`
-4. See instructions in deploy.sh to run your desired command!
+4. `./deploy.sh server`
+5. Open Google Chrome, and navigate to `chrome://extensions/` in the omnibox.
+6. Enable `Developer mode` on the top right of the screen. 
+7. Click `Load unpacked` and navigate to the `extension` folder within this repository. Select it and load it in. 
+8. Enjoy using the extension! It works on the `news.html` demo page within the `samples` directory, articles on `nbcnews.com`, and you can enter freeform text at `http://localhost:5000`.
 
+See more instructions in deploy.sh to run your desired command!
 
+### Directory descriptions:
+
+Use the deploy script as explained above and documented within the file itself to get up and running!
+
+| Directory | Description|
+|:-------------:|:-------------:|
+| **extention** | Contains all relevant source code for the Google Chrome extension. |
+| **notebooks** | Contains various Jupyter Notebooks that were used to train iterations of the models, used to just predict labels for given text with a pretrained model, and also contains some basic sample data. |
+| **samples** | Contains sample news pages and supporting CSS/JS files. |
+| **server** | Contains Flask server code that runs the API, various HTML templates, supporting CSS/JS static files, and more. |
 
 ### Dataset descriptions
 
@@ -49,7 +53,7 @@ The dataset is formatted as a CSV and contains the following fields:
 * summary
 * source (opensources, nytimes, or webhose)
 
-##### Available types: 
+##### Available labels: 
 
 | Type | Description|
 |:-------------:|:-------------:|
@@ -65,7 +69,7 @@ The dataset is formatted as a CSV and contains the following fields:
 | **reliable** | Sources that circulate news and information in a manner consistent with traditional and ethical practices in journalism (Remember: even credible sources sometimes rely on clickbait-style headlines or occasionally make mistakes. No news organization is perfect, which is why a healthy news diet consists of multiple sources of information). |
 
 ### Model Interpretation
-
+We have an informational page hosted by the server that provides explanations of what each label actually means. 
 
 
 ### Performance
