@@ -88,14 +88,24 @@ def api():
         predictions.append(logits)
 
     preds = np.concatenate(predictions, axis=0)
-    a = np.argmax(preds, axis=1).flatten()
+    print("PREDS", preds)
+    import torch.nn.functional as F
+    preds = F.softmax(torch.tensor(preds), dim=1).cpu().numpy().flatten()
+    # preds = [str(i)+"%" for i in list(np.array([i*100 for i in preds]).round(decimals=2))]
+    print("PREDS", preds)
 
-    std = [i[1] for i in sorted(list(zip(preds[0], label_dict.values())),key=lambda x:x[0])[::-1]]
-    print("SORTED CLASSES:", std)
+    std = [i for i in sorted(list(zip(preds, label_dict.values())),key=lambda x:x[0])[::-1]]
+    classes = [i[1] for i in std]
+    percents = [str(round(i[0]*100, 2))+"%" for i in std]
+    print("SORTED CLASSES WITH PERCENTS:", std)
+
+    idx = classes.index("unknown")
+    classes.pop(idx)
+    percents.pop(idx)
 
     print("TIME:", time.time() - start)
 
-    return " ".join([f"{i};" for i in std[:5]])
+    return " ".join([f"{i[0]}: {i[1]};" for i in list(zip(classes, percents))[:5]])
 
 @app.after_request
 def after_request_func(response):
