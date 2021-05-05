@@ -23,7 +23,7 @@ Use the deploy script as explained above and documented within the file itself t
 
 | Directory | Description|
 |:-------------:|:-------------:|
-| **extention** | Contains all relevant source code for the Google Chrome extension. |
+| **extension** | Contains all relevant source code for the Google Chrome extension. |
 | **notebooks** | Contains various Jupyter Notebooks that were used to train iterations of the models, used to just predict labels for given text with a pretrained model, and also contains some basic sample data. |
 | **samples** | Contains sample news pages and supporting CSS/JS files. |
 | **server** | Contains Flask server code that runs the API, various HTML templates, supporting CSS/JS static files, and more. |
